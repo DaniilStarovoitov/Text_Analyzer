@@ -73,9 +73,9 @@ words = text.split()
 
 length = len(words)
 
-titlecase = len([word for word in words if word[0].isupper() and word[0].isalpha()])
+titlecase = len([word for word in words if word[0].isupper() and word.isalpha()])
 
-upper = len([word for word in words if word.isupper() and word[0].isalpha()])
+upper = len([word for word in words if word.isupper() and word.isalpha()])
 
 num = [int(word) for word in words if word.isdigit()]
 
