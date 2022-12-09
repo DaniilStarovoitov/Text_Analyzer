@@ -51,7 +51,10 @@ else:
         print('wrong password, terminating the program..')
         quit()
     else:
-        print(f'----------------------------------------\nWelcome to the app, {user}\nWe have 3 texts to be analyzed.\n-----------------------------------------')
+        print(f'----------------------------------------')
+        print(f'Welcome to the app, {user}')
+        print(f'We have 3 texts to be analyzed.')
+        print(f'-----------------------------------------')
 
 search = int(input('Enter a number btw. 1 and 3 to select: '))
 
@@ -73,9 +76,9 @@ words = text.split()
 
 length = len(words)
 
-titlecase = len([word for word in words if word[0].isupper() and word[0].isalpha()])
+titlecase = len([word for word in words if word[0].isupper() and word.isalpha()])
 
-upper = len([word for word in words if word.isupper() and word[0].isalpha()])
+upper = len([word for word in words if word.isupper() and word.isalpha()])
 
 num = [int(word) for word in words if word.isdigit()]
 
