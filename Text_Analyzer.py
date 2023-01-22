@@ -33,82 +33,84 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
-registrated_users = {
-    'bob':'123',
-    'ann':'pass123',
-    'mike':'password123',
-    'liz':'pass123'}
+if __name__ == "__main__":
 
-user = input('username: ')
+    registrated_users = {
+        'bob':'123',
+        'ann':'pass123',
+        'mike':'password123',
+        'liz':'pass123'}
 
-if user not in registrated_users:
-    print('unregistered user, terminating the program..')
-    quit()
-else:
-    password = input('password: ')
-    p = registrated_users.get(user)
-    if password != p:
-        print('wrong password, terminating the program..')
+    user = input('username: ')
+
+    if user not in registrated_users:
+        print('unregistered user, terminating the program..')
         quit()
     else:
-        print(f'----------------------------------------')
-        print(f'Welcome to the app, {user}')
-        print(f'We have 3 texts to be analyzed.')
-        print(f'-----------------------------------------')
-
-search = int(input('Enter a number btw. 1 and 3 to select: '))
-
-text_one = TEXTS[0]
-text_two = TEXTS[1]
-text_three = TEXTS[2]
-
-if search == 1:
-    text = TEXTS[0]
-elif search == 2:
-    text = TEXTS[1]
-elif search == 3:
-    text = TEXTS[2]
-else:
-    print('No')
-    quit()
-
-words = text.split()
-
-length = len(words)
-
-titlecase = len([word for word in words if word[0].isupper() and word.isalpha()])
-
-upper = len([word for word in words if word.isupper() and word.isalpha()])
-
-num = [int(word) for word in words if word.isdigit()]
-
-len_num = len(num)
-
-lower = len([word for word in words if word.islower() and word.isalpha()])
-
-sum = 0
-for count in (num):
-    sum = sum + count
-
-
-print(f'There are {length} words in the selected text.')
-print(f'There are {titlecase} titlecase words.')
-print(f'There are {upper} uppercase words.')
-print(f'There are {lower} lowercase words.')
-print(f'There are {len_num} numeric strings.')
-print(f'The sum of all the numbers {sum}')
-print('----------------------------------------')
-
-
-dictionary = {}
-
-for word in words:
-    if word.isalnum():
-        if len(word) in dictionary:
-            dictionary[len(word)] = dictionary[len(word)] + 1
+        password = input('password: ')
+        p = registrated_users.get(user)
+        if password != p:
+            print('wrong password, terminating the program..')
+            quit()
         else:
-            dictionary[len(word)] = 1
+            print(f'----------------------------------------')
+            print(f'Welcome to the app, {user}')
+            print(f'We have 3 texts to be analyzed.')
+            print(f'-----------------------------------------')
 
-for i in sorted(dictionary):
-    st = dictionary[i] * '*'
-    print(f'{i:2}|{st:20}|{dictionary[i]}')
+    search = int(input('Enter a number btw. 1 and 3 to select: '))
+
+    text_one = TEXTS[0]
+    text_two = TEXTS[1]
+    text_three = TEXTS[2]
+
+    if search == 1:
+        text = TEXTS[0]
+    elif search == 2:
+        text = TEXTS[1]
+    elif search == 3:
+        text = TEXTS[2]
+    else:
+        print('No')
+        quit()
+
+    words = text.split()
+
+    length = len(words)
+
+    titlecase = len([word for word in words if word[0].isupper() and word.isalpha()])
+
+    upper = len([word for word in words if word.isupper() and word.isalpha()])
+
+    num = [int(word) for word in words if word.isdigit()]
+
+    len_num = len(num)
+
+    lower = len([word for word in words if word.islower() and word.isalpha()])
+
+    sum = 0
+    for count in (num):
+        sum = sum + count
+
+
+    print(f'There are {length} words in the selected text.')
+    print(f'There are {titlecase} titlecase words.')
+    print(f'There are {upper} uppercase words.')
+    print(f'There are {lower} lowercase words.')
+    print(f'There are {len_num} numeric strings.')
+    print(f'The sum of all the numbers {sum}')
+    print('----------------------------------------')
+
+
+    dictionary = {}
+
+    for word in words:
+        if word.isalnum():
+            if len(word) in dictionary:
+                dictionary[len(word)] = dictionary[len(word)] + 1
+            else:
+                dictionary[len(word)] = 1
+
+    for i in sorted(dictionary):
+        st = dictionary[i] * '*'
+        print(f'{i:2}|{st:20}|{dictionary[i]}')
