@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
     sum = 0
     for count in (num):
-        sum = sum + count
+        sum += count
 
 
     print(f'There are {length} words in the selected text.')
