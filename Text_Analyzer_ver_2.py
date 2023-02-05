@@ -35,6 +35,8 @@ garpike and stingray are also present.'''
 
 if __name__ == "__main__":
 
+    separator = 40 * '-'
+
     registrated_users = {
         'bob':'123',
         'ann':'pass123',
@@ -53,19 +55,17 @@ if __name__ == "__main__":
             print('wrong password, terminating the program..')
             quit()
         else:
-            print(f'----------------------------------------')
+            print(separator)
             print(f'Welcome to the app, {user}')
             print(f'We have 3 texts to be analyzed.')
-            print(f'-----------------------------------------')
+            print(separator)
 
-    search = input('Enter a number btw. 1 and 3 to select: ')
+    search = int(input('Enter a number btw. 1 and 3 to select: '))
 
-    if search == '1':
-        text = TEXTS[0]
-    elif search == '2':
-        text = TEXTS[1]
-    elif search == '3':
-        text = TEXTS[2]
+    index = search - 1
+
+    if index < len(TEXTS) - 1:
+        text = TEXTS[index]
     else:
         print('You can only choose text 1, 2 or 3')
         quit()
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     length = len(words)
 
-    titlecase = len([word for word in words if word[0].isupper()])
+    titlecase = len([word for word in words if word.istitle()])
 
     upper = len([word for word in words if word.isupper()])
 
@@ -95,7 +95,7 @@ if __name__ == "__main__":
     print(f'There are {lower} lowercase words.')
     print(f'There are {len_num} numeric strings.')
     print(f'The sum of all the numbers {sum}')
-    print('----------------------------------------')
+    print(separator)
 
 
     dictionary = {}
@@ -107,6 +107,12 @@ if __name__ == "__main__":
         else:
             dictionary[len(word)] = 1
 
+    text_one = 'LEN'
+    text_two = 'OCCURENCES'
+    text_three = 'NR.'
+
+    print(f'{text_one:3}|{text_two:20}|{text_three}')
+    print(separator)
     for i in sorted(dictionary):
         st = dictionary[i] * '*'
-        print(f'{i:2}|{st:20}|{dictionary[i]}')
+        print(f'{i:3}|{st:20}|{dictionary[i]}')
