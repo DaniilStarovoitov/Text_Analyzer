@@ -33,6 +33,8 @@ in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
 ]
 
+import re
+
 if __name__ == "__main__":
 
     separator = 40 * '-'
@@ -70,7 +72,7 @@ if __name__ == "__main__":
         print('You can only choose text 1, 2 or 3')
         quit()
 
-    words = text.split()
+    words = re.sub(r'[^\w\s]', '', text).split()
 
     length = len(words)
 
@@ -101,7 +103,6 @@ if __name__ == "__main__":
     dictionary = {}
 
     for word in words:
-        word = word.rstrip(',.')
         if len(word) in dictionary:
             dictionary[len(word)] = dictionary[len(word)] + 1
         else:
