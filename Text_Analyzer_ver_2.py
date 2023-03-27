@@ -2,7 +2,7 @@
 projekt_1.py: první projekt do Engeto Online Python Akademie
 author: Daniil Starovoitov
 email: daniil.s@seznam.cz
-discord: Sweet Procrastination#6256
+discord: Scorched_Earth#6256
 """
 
 TEXTS = ['''
