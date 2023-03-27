@@ -39,31 +39,38 @@ if __name__ == "__main__":
 
     separator = 40 * '-'
 
+    # dictionary of registered users and their passwords
     registrated_users = {
         'bob':'123',
         'ann':'pass123',
         'mike':'password123',
         'liz':'pass123'}
 
+    # get user input for username
     user = input('username: ')
 
+    # check if the user is registered
     if user not in registrated_users:
         print('unregistered user, terminating the program..')
         quit()
     else:
+        # get user input for password and check if it matches
         password = input('password: ')
         p = registrated_users.get(user)
         if password != p:
             print('wrong password, terminating the program..')
             quit()
         else:
+            # welcome message
             print(separator)
             print(f'Welcome to the app, {user}')
             print(f'We have 3 texts to be analyzed.')
             print(separator)
 
+    # get user input for which text to analyze
     search = int(input('Enter a number btw. 1 and 3 to select: '))
 
+    # select the corresponding text
     index = search - 1
 
     if index < len(TEXTS) - 1:
@@ -72,6 +79,7 @@ if __name__ == "__main__":
         print('You can only choose text 1, 2 or 3')
         quit()
 
+    # analyze the text and count various features
     words = re.sub(r'[^\w\s]', '', text).split()
 
     length = len(words)
@@ -90,7 +98,7 @@ if __name__ == "__main__":
     for count in (num):
         sum += count
 
-
+    # print the results
     print(f'There are {length} words in the selected text.')
     print(f'There are {titlecase} titlecase words.')
     print(f'There are {upper} uppercase words.')
@@ -99,7 +107,7 @@ if __name__ == "__main__":
     print(f'The sum of all the numbers {sum}')
     print(separator)
 
-
+    # create a dictionary of word length and their occurrence
     dictionary = {}
 
     for word in words:
@@ -108,6 +116,7 @@ if __name__ == "__main__":
         else:
             dictionary[len(word)] = 1
 
+    # print the histogram
     text_one = 'LEN'
     text_two = 'OCCURENCES'
     text_three = 'NR.'
